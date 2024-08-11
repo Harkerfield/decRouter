@@ -1,0 +1,350 @@
+{
+  "apiBaseUrl": "/sites/354RANS/hafi/",
+  "folderLocation": "tester",
+  "lists": {
+    "threatList": "threatList",
+    "movableThreatList": "movableThreatList",
+    "scheduleList": "scheduleList"
+  },
+  "listColumn": {
+    "threatList": [
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "serialNumber",
+        "FieldTypeKind": 2,
+        "StaticName": "serialNumber"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "systemType",
+        "FieldTypeKind": 2,
+        "StaticName": "systemType"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "schedulableItem",
+        "FieldTypeKind": 2,
+        "StaticName": "schedulableItem"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "location",
+        "FieldTypeKind": 2,
+        "StaticName": "location"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "range",
+        "FieldTypeKind": 2,
+        "StaticName": "range"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pointLocationLat",
+        "FieldTypeKind": 2,
+        "StaticName": "pointLocationLat"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pointLocationLon",
+        "FieldTypeKind": 2,
+        "StaticName": "pointLocationLon"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pointLocationAlt",
+        "FieldTypeKind": 2,
+        "StaticName": "pointLocationAlt"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "deviceBand",
+        "FieldTypeKind": 2,
+        "StaticName": "deviceBand"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "threat",
+        "FieldTypeKind": 2,
+        "StaticName": "threat"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "mxCondition",
+        "FieldTypeKind": 2,
+        "StaticName": "mxCondition"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "status",
+        "FieldTypeKind": 2,
+        "StaticName": "status"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "ETIC",
+        "FieldTypeKind": 2,
+        "StaticName": "ETIC"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "remarks",
+        "FieldTypeKind": 2,
+        "StaticName": "remarks"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "statusChangeDate",
+        "FieldTypeKind": 2,
+        "StaticName": "statusChangeDate"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "operationalStatus",
+        "FieldTypeKind": 2,
+        "StaticName": "operationalStatus"
+      }
+    ],
+    "movableThreatList": [
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "serialNumber",
+        "FieldTypeKind": 2,
+        "StaticName": "serialNumber"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "systemType",
+        "FieldTypeKind": 2,
+        "StaticName": "systemType"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "schedulableItem",
+        "FieldTypeKind": 2,
+        "StaticName": "schedulableItem"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "deviceBand",
+        "FieldTypeKind": 2,
+        "StaticName": "deviceBand"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "threat",
+        "FieldTypeKind": 2,
+        "StaticName": "threat"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "mxCondition",
+        "FieldTypeKind": 2,
+        "StaticName": "mxCondition"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "status",
+        "FieldTypeKind": 2,
+        "StaticName": "status"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "ETIC",
+        "FieldTypeKind": 2,
+        "StaticName": "ETIC"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "remarks",
+        "FieldTypeKind": 2,
+        "StaticName": "remarks"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "statusChangeDate",
+        "FieldTypeKind": 2,
+        "StaticName": "statusChangeDate"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "operationalStatus",
+        "FieldTypeKind": 2,
+        "StaticName": "operationalStatus"
+      }
+    ],
+    "scheduleList": [
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "equipmentRequested",
+        "FieldTypeKind": 2,
+        "StaticName": "equipmentRequested"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "typeOfThreat",
+        "FieldTypeKind": 2,
+        "StaticName": "typeOfThreat"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "range",
+        "FieldTypeKind": 2,
+        "StaticName": "range"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "location",
+        "FieldTypeKind": 2,
+        "StaticName": "location"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "requestStatus",
+        "FieldTypeKind": 2,
+        "StaticName": "requestStatus"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "notes",
+        "FieldTypeKind": 2,
+        "StaticName": "notes"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pocName",
+        "FieldTypeKind": 2,
+        "StaticName": "pocName"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pocNumber",
+        "FieldTypeKind": 2,
+        "StaticName": "pocNumber"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pocEmail",
+        "FieldTypeKind": 2,
+        "StaticName": "pocEmail"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "pocSquadron",
+        "FieldTypeKind": 2,
+        "StaticName": "pocSquadron"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "start",
+        "FieldTypeKind": 4,
+        "StaticName": "start"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "end",
+        "FieldTypeKind": 4,
+        "StaticName": "end"
+      },
+      {
+        "__metadata": {
+          "type": "SP.Field"
+        },
+        "Title": "threatId",
+        "FieldTypeKind": 2,
+        "StaticName": "threatId"
+      }
+    ]
+  },
+  "decModifier": true,
+  "debug": true,
+  "homeInfo": [
+    "Home",
+    "See you, space Cowboy"
+  ],
+
+  "debugInfo": [
+    "I hope this tool is usefull...",
+    "Source files: https://github.com/Harkerfield/JESTRRevised​",
+    "J. Hartsfield, 354 RANS, the one with multiple hats and no position #...",
+    "01 July 2020 - 30 July 2024"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "dec_creator",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^4.4.1",
+    "file-saver": "^2.0.5",
+    "git": "^0.1.5",
+    "install": "^0.13.0",
+    "moment": "^2.29.4",
+    "npm": "^10.1.0",
+    "pdf-lib": "^1.17.1",
+    "react": "^18.2.0",
+    "react-big-calendar": "^1.8.4",
+    "react-chartjs-2": "^5.2.0",
+    "react-data-table-component": "^7.5.4",
+    "react-dom": "^18.2.0",
+    "react-grid-layout": "^1.4.4",
+    "react-modal": "^3.16.1",
+    "react-pdf": "^9.1.0",
+    "react-resizable": "^3.0.5",
+    "react-scripts": "5.0.1",
+    "react-table": "^7.8.0",
+    "styled-components": "^6.0.8",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "set PUBLIC_URL=/sites/*/*/sitename && react-app-rewired build && node post-build.js",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "compile-js": "babel src --out-dir compiled",
+    "copy-assets": "copyfiles -u 1 src/**/*.{css,png,jpg,svg} compiled",
+    "build-vanilla": "npm run compile-js && npm run copy-assets"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
+    "copy-webpack-plugin": "^11.0.0",
+    "react-app-rewired": "^2.2.1"
+  }
+}
