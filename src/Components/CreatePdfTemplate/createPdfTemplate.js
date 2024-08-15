@@ -20,7 +20,7 @@ const MyDocument = ({test}) => (
   <Document>
     <Page size="A4" style={styles.page} debug={true}>
       <View style={styles.section}>
-        <Text>{test}</Text>
+        <Text>test</Text>
       </View>
       <View style={styles.section}>
         <Text># of cytations</Text>
