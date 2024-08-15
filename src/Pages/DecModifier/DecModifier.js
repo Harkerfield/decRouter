@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: 'Times-Roman',
     flexDirection: 'column',
+    justifyContent: 'space-between', // Distribute space between elements
     padding: 40, // This will give you a 1-inch margin on all sides on A4 size
     backgroundColor: '#FFFFFF',
   },
@@ -64,6 +65,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    position: 'absolute',
+    bottom: 40, // Position at the bottom with margin
+    left: 40,
+    right: 40,
   },
   specialOrderItem: {
     marginBottom: 5,
