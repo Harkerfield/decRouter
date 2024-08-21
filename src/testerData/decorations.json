@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "name": "title",
+    "awardType": "28D",
+    "multiplier": "Static",
+    "openingSentance": "NO",
+    "narrativeBody": "BravoBattery-4",
+    "closingSentance": "2205",
+    "date": "64.6746900000000",
+    "signatureBlock": "-146.752210000000",
+    "specialOrder": "2006",
+    "condition": "Static",
+    "pas": "SA-6",
+    "rdp": "GREEN"
+  }
+]

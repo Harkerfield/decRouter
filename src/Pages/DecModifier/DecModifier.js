@@ -1,79 +1,138 @@
 import React, { useEffect, useState } from "react";
-import { PDFViewer, PDFDownloadLink, Text, View, Document, StyleSheet, Page, Image } from '@react-pdf/renderer';
+import { PDFViewer, PDFDownloadLink, Text, View, Document, StyleSheet, Page, Image, Font } from '@react-pdf/renderer';
+import MSM_Image from './Images/MSM_Image.png'
+import AFCM_Image from './Images/AFCM_Image.png'
+import AFAM_Image from './Images/AFAM_Image.png'
+import Times_New_Roman from './Font/Times_New_Roman.ttf'
+import Times_New_Roman_Bold from './Font/Times_New_Roman_Bold.ttf'
+// Register font
+Font.register({ family: 'Times_New_Roman', src: Times_New_Roman });
+Font.register({ family: 'Times_New_Roman_Bold', src: Times_New_Roman_Bold });
 
 // Maximum characters allowed
 const MAX_CHARACTERS = 1350;
 
 // Award images
 const awardImages = {
-  "Meritorious Service Medal": "path/to/msm_image.jpg",
-  "Air Force Commendation Medal": "path/to/afcm_image.jpg",
-  "Air Force Achievement Medal": "path/to/afam_image.jpg"
+  "Meritorious Service Medal": MSM_Image,
+  "Air Force Commendation Medal": AFCM_Image,
+  "Air Force Achievement Medal": AFAM_Image
 };
 
 // Create styles for the PDF document
 const styles = StyleSheet.create({
   page: {
-    fontSize: 11,
-    fontFamily: 'Times-Roman',
+    fontSize: 12,
+    fontFamily: 'Times_New_Roman',
     flexDirection: 'column',
-    justifyContent: 'space-between', // Distribute space between elements
-    padding: 40, // This will give you a 1-inch margin on all sides on A4 size
-    backgroundColor: '#FFFFFF',
-  },
-  section: {
+    paddingLeft: '96',
+    paddingRight: '96',
     textAlign: 'center',
-    marginBottom: 20,
+
   },
   image: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
+    height: 150,
+    marginTop: 20,
+    marginBottom: 10,
     alignSelf: 'center'
   },
-  citationHeader: {
+  citationDepartment: {
     textAlign: 'center',
-    marginBottom: 20,
+    fontFamily: 'Times_New_Roman_Bold',
+    fontSize: 21.5,
     textTransform: 'uppercase',
+    paddingBottom: 24,
+
+  },
+  certifyLine: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    paddingBottom: 12,
+  },
+  certifyType: {
+    fontSize: 16,
+    fontFamily: 'Times_New_Roman_Bold',
+    textTransform: 'uppercase',
+    paddingBottom: 12,
+  },
+  awardToLine: {
+    fontSize: 13,
+    textTransform: 'uppercase',
+    paddingBottom: 20,
+  },
+  awardToName: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    paddingBottom: 20,
+  },
+
+  forLine: {
+    fontSize: 13.5,
+    textTransform: 'uppercase',
+    paddingBottom: 12,
+  },
+  awardName: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    paddingBottom: 24,
+  },
+  awardReason: {
+    fontSize: 12,
+    textTransform: 'uppercase',
+    paddingBottom: 20,
+  },
+  accomplishmentsLine: {
+    fontSize: 13,
+    textTransform: 'uppercase',
+    paddingBottom: 12,
   },
   citationBody: {
+    fontSize: 12,
     textAlign: 'justify',
-    marginBottom: 20,
+    paddingBottom: 24,
   },
-  closingSentence: {
+  givenUnderMyHand: {
+    fontSize: 10.5,
     textAlign: 'center',
-    marginTop: 20,
+    paddingBottom: 12,
   },
-  centeredText: {
+  dateBlock: {
+    fontSize: 10.5,
     textAlign: 'center',
-    marginBottom: 20,
-  },
-  characterCounter: {
-    textAlign: 'right',
-    fontSize: '12px',
-    color: '#777777',
-    marginBottom: '10px',
+    paddingBottom: 24,
   },
   signatureBlock: {
-    marginTop: 30,
-    textAlign: 'center',
-    marginBottom: 20,
+    marginTop: 0,
+    textAlign: 'left',
   },
   specialOrderSection: {
-    marginTop: 20,
-    fontSize: 10,
+    fontSize: 7,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 40, // Position at the bottom with margin
-    left: 40,
-    right: 40,
+    textAlign: 'center',
+    justifyContent: 'space-evenly',
+    bottom: 10,
+    position: 'absolute'
   },
   specialOrderItem: {
     marginBottom: 5,
   }
 });
+
+// Utility function to determine the oak leaf clusters based on multiplier
+const getOakLeafClusters = (multiplier) => {
+  if (multiplier === 0) return '';
+
+  const silverClusters = Math.floor(multiplier / 6);
+  const bronzeClusters = multiplier % 6;
+
+  const silverText = silverClusters > 0 ? `First Silver Oak Leaf Cluster` : '';
+  const bronzeText = bronzeClusters > 0 ? `${bronzeClusters === 1 ? 'First' : bronzeClusters === 2 ? 'Second' : bronzeClusters === 3 ? 'Third' : bronzeClusters === 4 ? 'Fourth' : 'Fifth'} Bronze Oak Leaf Cluster` : '';
+
+  if (silverClusters > 0 && bronzeClusters > 0) {
+    return `${silverText} and ${bronzeText}`;
+  }
+  return silverText || bronzeText;
+};
 
 // Create Document Component
 const MyDocument = ({ data, showImage }) => (
@@ -84,14 +143,43 @@ const MyDocument = ({ data, showImage }) => (
           <Image style={styles.image} src={awardImages[data.awardType]} />
         </View>
       )}
-      <View style={styles.citationHeader}>
-        <Text>CITATION TO ACCOMPANY THE AWARD OF</Text>
-        <Text>{data.awardType || "THE MERITORIOUS SERVICE MEDAL"}</Text>
-        {data.multiplier > 1 && <Text>(FIRST OAKLEAF CLUSTER)</Text>}
+
+      <View style={styles.citationDepartment}>
+        <Text>DEPARTMENT OF THE AIR FORCE</Text>
+
       </View>
 
-      <View style={styles.centeredText}>
-        <Text>{data.name || "James V. Holver"}</Text>
+      <View style={styles.certifyLine}>
+        <Text>THIS IS TO CERTIFY THAT</Text>
+      </View>
+      <View style={styles.certifyType}>
+        <Text>THE {data.awardType}</Text>
+        {data.multiplier > 0 && (
+          <Text>({getOakLeafClusters(data.multiplier)})</Text>
+        )}
+      </View>
+
+      <View style={styles.awardToLine}>
+        <Text>HAS BEEN AWARDED TO</Text>
+      </View>
+
+
+
+      <View style={styles.awardToName}>
+        <Text>{data.name || "FIRSTNAME M. LASTNAME"}</Text>
+      </View>
+
+
+      <View style={styles.forLine}>
+        <Text>FOR</Text>
+      </View>
+
+      <View style={styles.awardReason}>
+        <Text>{data.forStatement || "MERITORIOUS SERVICE"}</Text>
+      </View>
+
+      <View style={styles.accomplishmentsLine}>
+        <Text>ACCOMPLISHMENTS</Text>
       </View>
 
       <View style={styles.citationBody}>
@@ -100,10 +188,23 @@ const MyDocument = ({ data, showImage }) => (
         </Text>
       </View>
 
-      <View style={styles.signatureBlock}>
+
+      <View style={styles.givenUnderMyHand}>
         <Text>GIVEN UNDER MY HAND</Text>
+      </View>
+
+      <View style={styles.dateBlock}>
         <Text>{data.date || "(date)"}</Text>
-        <Text style={{ marginTop: 30 }}>{data.signatureBlock || "Commander Name, Rank"}</Text>
+      </View>
+
+      <View style={styles.givenUnderMyHand}>
+        <Text>_______________________________________</Text>
+      </View>
+
+
+      <View style={styles.signatureBlock}>
+        <Text>{data.date || "(date)"}</Text>
+        <Text>{data.signatureBlock || "Commander Name, Rank"}</Text>
       </View>
 
       <View style={styles.specialOrderSection}>
@@ -118,9 +219,10 @@ const MyDocument = ({ data, showImage }) => (
 
 const DecModifier = () => {
   const [userDecData, setUserDecData] = useState({
-    awardType: "Meritorious Service Medal",
-    multiplier: 1,
+    awardType: "",
+    multiplier: null,
     name: "",
+    forStatement: "",
     openingSentence: "",
     narrativeDescription: "",
     closingSentence: "",
@@ -135,9 +237,9 @@ const DecModifier = () => {
   const [charCount, setCharCount] = useState(MAX_CHARACTERS);
   const [showImage, setShowImage] = useState(true);
 
-  const handleInputChange = (event) => {
+  // Separate handlers for fields that should affect the character count
+  const handleTextChange = (event) => {
     const { name, value } = event.target;
-
     const totalChars =
       userDecData.openingSentence.length +
       userDecData.narrativeDescription.length +
@@ -152,6 +254,15 @@ const DecModifier = () => {
       }));
       setCharCount(MAX_CHARACTERS - totalChars);
     }
+  };
+
+  // Separate handler for other fields that don't affect the character count
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserDecData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
   const handleAwardTypeChange = (event) => {
@@ -217,13 +328,34 @@ const DecModifier = () => {
           </div>
 
           <div className="af-form-group">
+            <label className="af-form-label" htmlFor="forStatement">For Statement</label>
+            <textarea
+              type="number"
+              name="forStatement"
+              id="forStatement"
+              className="af-input"
+              placeholder="Enter For Statement"
+              onChange={handleInputChange}
+              value={userDecData.forStatement}
+            />
+          </div>
+
+
+          <div className={styles.characterCounter}>
+            <label className="af-form-label">Remaining Characters:</label>
+            <span style={{ color: charCount < 100 ? 'red' : 'black' }}>
+              {charCount}
+            </span>
+          </div>
+
+          <div className="af-form-group">
             <label className="af-form-label" htmlFor="openingSentence">Opening Sentence</label>
             <textarea
               name="openingSentence"
               id="openingSentence"
               className="af-textarea"
               placeholder="Enter Opening Sentence"
-              onChange={handleInputChange}
+              onChange={handleTextChange}
               value={userDecData.openingSentence}
             />
           </div>
@@ -235,7 +367,7 @@ const DecModifier = () => {
               id="narrativeDescription"
               className="af-textarea"
               placeholder="Enter Narrative Description"
-              onChange={handleInputChange}
+              onChange={handleTextChange}
               value={userDecData.narrativeDescription}
             />
           </div>
@@ -247,7 +379,7 @@ const DecModifier = () => {
               id="closingSentence"
               className="af-textarea"
               placeholder="Enter Closing Sentence"
-              onChange={handleInputChange}
+              onChange={handleTextChange}
               value={userDecData.closingSentence}
             />
           </div>
@@ -327,10 +459,6 @@ const DecModifier = () => {
               onChange={handleInputChange}
               value={userDecData.rdp}
             />
-          </div>
-
-          <div className={styles.characterCounter}>
-            <Text>{charCount} characters remaining</Text>
           </div>
 
           <PDFDownloadLink
